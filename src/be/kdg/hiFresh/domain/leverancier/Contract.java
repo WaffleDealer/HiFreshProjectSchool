@@ -16,7 +16,7 @@ public class Contract {
 	private final LocalDate datum;
 	private final int nummer;
 	private final Leverancier leverancier;
-//	private List<ContractPeriode> cPeriodes;
+	private List<ContractPeriode> cPeriodes;
 	// TODO: implementeer klasse
 
 
@@ -24,13 +24,16 @@ public class Contract {
 		this.leverancier = leverancier;
 		this.nummer = i;
 		this.datum=of;
+		cPeriodes = new ArrayList<>();
 	}
 
 	public void add(ContractPeriode periode){
-//		cPeriodes.add(periode);
+		cPeriodes.add(periode);
 		// TODO
 
 	}
 
-
+	public List<ContractPeriode> getcPeriodes() {
+		return cPeriodes;
+	}
 }

@@ -8,16 +8,16 @@ import java.util.logging.Logger;
  * @author Jan de Rijke.
  */
 public class ContactInfo {
-//	private Adres adres;
-//	private String email;
-//	private String[] tel;
+	private Adres adres;
+	private String email;
+	private String[] tel;
 	// TODO: implementeer klasse
 
 
 
 	public ContactInfo(Adres adres, String email, String... tel) {
-//		this.adres = adres;
-//		this.email = email;
-//		this.tel = tel;
+		this.adres = adres;
+		this.email = email;
+		this.tel = tel;
 	}
 }

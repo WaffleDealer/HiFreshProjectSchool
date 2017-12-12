@@ -1,6 +1,8 @@
 package be.kdg.hiFresh.application;
 
 import be.kdg.foundation.operatie.*;
+import be.kdg.hiFresh.domain.leverancier.Contract;
+import be.kdg.hiFresh.domain.leverancier.ContractPeriode;
 import be.kdg.hiFresh.domain.recept.Recept;
 import be.kdg.hiFresh.domain.recept.WeekAanbod;
 import org.junit.Before;
@@ -22,13 +24,27 @@ import static org.junit.Assert.assertTrue;
  */
 public class BackOfficeControllerTest {
 	private BackOfficeController ctrl;
-
+	private ReceptManager rM;
+	private WeekaanbodManager waM;
 
 
 	@Before
 	public void setUp() throws Exception {
 		// TODO initialiseer het systeem
 		TestData data = new TestData();
+		Startup start = new Startup();
+		ctrl = start.getController();
+		rM =start.getrM();
+		waM = start.getWaM();
+		for (Contract contract : data.getContracten()) {
+			start.getrM().getBestaandeContracten().voegToeContract(contract);
+		}
+		for (WeekAanbod weekAanbod : data.getPlanning()) {
+			start.getWaM().voegToeWeekaanbod(weekAanbod);
+		}
+		for (Recept recept : data.getRecepten()) {
+			start.getrM().voegToeRecept(recept);
+		}
 		// TODO Voeg de testdata toe aan het systeem.
 		// De TestData zijn beschikbaar in collections via de getter methoden van TestData
 		// Na de initialisatie mag de TestData klasse niet meer gebruikt worden.

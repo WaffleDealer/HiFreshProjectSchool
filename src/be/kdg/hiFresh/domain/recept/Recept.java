@@ -10,12 +10,12 @@ import java.util.logging.Logger;
  */
 public class Recept {
 	// TODO: implementeer klasse
-//	private String naam;
-//	private Duration bereidingsTijd;
-//	private int moeilijkheid;
-//	private List<String> instructies;
-//	private List<Ingredient> ingredienten;
-//	private List<Label> labels;
+	private String naam;
+	private Duration bereidingsTijd;
+	private int moeilijkheid;
+	private List<String> instructies;
+	private List<Ingredient> ingredienten;
+	private List<Label> labels;
 
 
 
@@ -26,22 +26,23 @@ public class Recept {
 		List<String> instructies,
 		List<Ingredient> ingredienten
 	) {
-//		this.naam = naam;
-//		this.bereidingsTijd = bereidingsTijd;
-//		this.moeilijkheid = moeilijkheid;
-//		this.instructies = instructies;
-//		this.ingredienten = ingredienten;
+		this.naam = naam;
+		this.bereidingsTijd = bereidingsTijd;
+		this.moeilijkheid = moeilijkheid;
+		this.instructies = instructies;
+		this.ingredienten = ingredienten;
+		labels = new ArrayList<>();
 	}
 
 	public void addLabel(Label label) {
-//		labels.add(label);
+		labels.add(label);
 		//TODO
 	}
 
 
 	public String getNaam() {
 		//TODO
-//		return naam;
-		return null; //vervang dit door return naam eens goedgekeurd
+		return naam;
+//		return null; //vervang dit door return naam eens goedgekeurd
 	}
 }
