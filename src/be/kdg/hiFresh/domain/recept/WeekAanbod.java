@@ -18,7 +18,7 @@ public class WeekAanbod {
 	// TODO: implementeer klasse
 
 	public static final int SIZE =10;
-
+	//geschreven door Chuck Fon Lee
   public WeekAanbod(YearWeek week, double prijs) {
 	  // TODO
 	  this.week = week;

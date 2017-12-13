@@ -3,9 +3,7 @@ package be.kdg.hiFresh.application;
 
 import be.kdg.foundation.operatie.Operatie;
 import be.kdg.foundation.operatie.Sort;
-import be.kdg.hiFresh.domain.leverancier.Contract;
 import be.kdg.hiFresh.domain.recept.*;
-import org.threeten.extra.YearWeek;
 
 import java.util.*;
 
@@ -22,23 +20,30 @@ public class BackOfficeController {
 	public BackOfficeController() {
 
 	}
-
+/**
+ * @author Chuck Fon Lee
+ */
 	public BackOfficeController(ReceptManager rM,WeekaanbodManager pM) {
 		productenMan = pM;
 		receptenMan = rM;
 	} //TODO indien nodig
-
+	/**
+     * @author Chuck Fon Lee
+     */
 	public List<WeekAanbod> getLijstWeekaanbod() {
 		// TODO
 		return productenMan.getLijstWeekaanboden(WEEK_PAGE_SIZE); //placeholder om compileerbaar te maken
 	}
-
+	/**
+     * @author Chuck Fon Lee
+     */
 	public Map<Recept, Double> zoekRecepten(
 		int jaar, int week, List<Operatie>
 		filter,
 		List<Sort> sorter
 	) {
-		YearWeek geldigheid = YearWeek.of(jaar,week);
+		receptenMan.zoekRecepten(jaar,week,filter,sorter);
+
 		// TODO
 		return null; //placeholder om compileerbaar te maken
 	}

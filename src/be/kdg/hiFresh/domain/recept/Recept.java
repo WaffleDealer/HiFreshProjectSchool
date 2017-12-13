@@ -9,7 +9,7 @@ import java.util.logging.Logger;
  * @author Jan de Rijke.
  */
 public class Recept {
-	// TODO: implementeer klasse
+	//geschreven door Chuck Fon Lee
 	private String naam;
 	private Duration bereidingsTijd;
 	private int moeilijkheid;
@@ -44,5 +44,9 @@ public class Recept {
 		//TODO
 		return naam;
 //		return null; //vervang dit door return naam eens goedgekeurd
+	}
+
+	public List<Ingredient> getIngredienten() {
+		return ingredienten;
 	}
 }

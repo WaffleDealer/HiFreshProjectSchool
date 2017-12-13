@@ -9,6 +9,7 @@ import java.util.logging.Logger;
  * @author Jan de Rijke.
  */
 public class Product {
+	//geschreven door Chuck Fon Lee
 	private String naam;
 	private MonthDay startHoogseizoen;
 	private MonthDay eindeHoogseizoen;

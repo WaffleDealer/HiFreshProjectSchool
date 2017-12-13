@@ -1,11 +1,11 @@
 package be.kdg.hiFresh.application;
 
-import be.kdg.hiFresh.domain.leverancier.Contract;
-import be.kdg.hiFresh.domain.recept.Recept;
-import be.kdg.hiFresh.domain.recept.WeekAanbod;
-
-import java.util.List;
-
+import be.kdg.hiFresh.domain.leverancier.ContractManager;
+import be.kdg.hiFresh.domain.recept.ReceptManager;
+import be.kdg.hiFresh.domain.recept.WeekaanbodManager;
+/**
+ * @author Chuck Fon Lee
+ */
 public class Startup {
     private ReceptManager rM;
     private ContractManager cM;
@@ -17,7 +17,6 @@ public class Startup {
         rM = new ReceptManager(cM);
         waM = new WeekaanbodManager();
         controller = new BackOfficeController(rM,waM);
-//        controller = new BackOfficeController(rM,waM);
     }
 
     public ReceptManager getrM() {

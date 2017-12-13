@@ -2,9 +2,10 @@ package be.kdg.hiFresh.application;
 
 import be.kdg.foundation.operatie.*;
 import be.kdg.hiFresh.domain.leverancier.Contract;
-import be.kdg.hiFresh.domain.leverancier.ContractPeriode;
 import be.kdg.hiFresh.domain.recept.Recept;
+import be.kdg.hiFresh.domain.recept.ReceptManager;
 import be.kdg.hiFresh.domain.recept.WeekAanbod;
+import be.kdg.hiFresh.domain.recept.WeekaanbodManager;
 import org.junit.Before;
 import org.junit.Test;
 import org.threeten.extra.YearWeek;
@@ -32,6 +33,8 @@ public class BackOfficeControllerTest {
 	public void setUp() throws Exception {
 		// TODO initialiseer het systeem
 		TestData data = new TestData();
+
+		//geschreven door Chuck Fon Lee
 		Startup start = new Startup();
 		ctrl = start.getController();
 		rM =start.getrM();

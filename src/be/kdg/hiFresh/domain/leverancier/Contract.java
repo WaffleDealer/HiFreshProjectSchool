@@ -17,7 +17,8 @@ public class Contract {
 	private final int nummer;
 	private final Leverancier leverancier;
 	private List<ContractPeriode> cPeriodes;
-	// TODO: implementeer klasse
+	//geschreven door Chuck Fon Lee
+
 
 
 	public Contract(Leverancier leverancier, int i, LocalDate of) {
@@ -26,7 +27,9 @@ public class Contract {
 		this.datum=of;
 		cPeriodes = new ArrayList<>();
 	}
-
+	/**
+	 * @author Chuck Fon Lee
+	 */
 	public void add(ContractPeriode periode){
 		cPeriodes.add(periode);
 		// TODO

@@ -12,6 +12,8 @@ public class ContactInfo {
 	private String email;
 	private String[] tel;
 	// TODO: implementeer klasse
+	//geschreven door Chuck Fon Lee
+
 
 
 
