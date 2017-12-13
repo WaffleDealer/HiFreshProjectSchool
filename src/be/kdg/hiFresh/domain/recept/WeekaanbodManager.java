@@ -20,7 +20,6 @@ public class WeekaanbodManager {
         for (int i=0;i<aantal;i++) {
             returnWeekaanboden.add(bestaandeWeekaanboden.get(i));
         }
-        System.out.println(returnWeekaanboden);
         return returnWeekaanboden;
     }
 

@@ -42,10 +42,10 @@ public class BackOfficeController {
 		filter,
 		List<Sort> sorter
 	) {
-		receptenMan.zoekRecepten(jaar,week,filter,sorter);
 
 		// TODO
-		return null; //placeholder om compileerbaar te maken
+		return 		receptenMan.zoekRecepten(jaar,week,filter,sorter);
+		 //placeholder om compileerbaar te maken
 	}
 
 }

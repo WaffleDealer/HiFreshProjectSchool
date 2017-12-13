@@ -33,7 +33,7 @@ public class ContractManager {
         for (Contract c : bestaandeContracten) {
             for (ContractPeriode cP : c.getcPeriodes()) {
                 if(cP.isGeldigVoor(x, geldigePeriode)) {
-                    totaalPrijs += cP.getEenheidsPrijs()*hoev.getAantal();
+                    totaalPrijs += cP.getEenheidsPrijs()*cP.getMaxHoeveelheid().getAantal()*(hoev.getAantal()/(cP.getMaxHoeveelheid().getAantal()*x.getStandaardHoeveelheid().getAantal()));
                     aantalContractPeriodes++;
                 }
             }
