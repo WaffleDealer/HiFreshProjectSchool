@@ -49,32 +49,40 @@ public class ReceptManager extends MemoryRepository {
             mR.put(recept);
         }
         returnRecepten = new HashMap<>();
-        List<Recept> f = new ArrayList<>();
-        Comparator<Recept> sortComparator=null;
+        HashSet<Recept> f = new HashSet<>();
+        List<Comparator<Recept>> sortComparator=new ArrayList<>();
 
         for (Sort sort : sorter) {
-            if (sort.getOrder().equals(Order.ASCENDING)) {
-                sortComparator = new Comparator<>() {
-                    @Override
-                    public int compare(Recept o1, Recept o2) {
-                        return o1.getNaam().compareToIgnoreCase(o2.getNaam());
-                    }
-                };
-            } else {
-                 sortComparator = new Comparator<>() {
-                    @Override
-                    public int compare(Recept o1, Recept o2) {
-                        return o2.getNaam().compareToIgnoreCase(o1.getNaam());
-                    }
-                };
+            switch (sort.getField()) {
+                case ("naam"): if (sort.getOrder().equals(Order.ASCENDING)) {
+                                Comparator<Recept> add = new Comparator<>() {
+                                    @Override
+                                public int compare(Recept o1, Recept o2) {
+                                    return o1.getNaam().compareToIgnoreCase(o2.getNaam());
+                                }
+                            };
+                            sortComparator.add(add);
+                            } else {
+                            Comparator<Recept> add = new Comparator<>() {
+                                @Override
+                                public int compare(Recept o1, Recept o2) {
+                                    return o2.getNaam().compareToIgnoreCase(o1.getNaam());
+                                }
+                            };
+                            sortComparator.add(add);
+                            }
+                }
             }
-        }
 
         for (Operatie operatie : filter) {
             switch (operatie.getOperator()) {
-                case CONTAINS: f=mR.findWhere(( x -> x.getNaam().toLowerCase().contains(operatie.getValue().toLowerCase())),sortComparator);
+                case CONTAINS: f.addAll(mR.findWhere(( x -> x.getNaam().toLowerCase().contains(operatie.getValue().toLowerCase()))));
                 break;
             }
+        }
+
+        for (Comparator<Recept> receptComparator : sortComparator) {
+            f.stream().sorted(receptComparator);
         }
 
         LocalDate geldigePeriode = LocalDate.ofYearDay(jaar,week*7);
