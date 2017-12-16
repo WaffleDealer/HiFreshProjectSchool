@@ -12,6 +12,7 @@ import be.kdg.infra.MemoryRepository;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * @author Chuck Fon Lee
@@ -82,7 +83,9 @@ public class ReceptManager extends MemoryRepository {
         }
 
         for (Comparator<Recept> receptComparator : sortComparator) {
-            f.stream().sorted(receptComparator);
+            List<Recept> gesorteerd = f.stream().sorted(receptComparator).collect(Collectors.toList());
+            f.clear();
+            f.addAll(gesorteerd);
         }
 
         LocalDate geldigePeriode = LocalDate.ofYearDay(jaar,week*7);
